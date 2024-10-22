@@ -24,7 +24,7 @@ Kiến trúc của hệ thống Payroll gồm các thành phần chính sau:
 6. **Bảo mật (Security)**
    - Hệ thống đảm bảo rằng chỉ có các nhân viên mới có thể chỉnh sửa thông tin của chính họ và chỉ quản trị viên mới được thay đổi thông tin nhân viên hoặc thiết lập hệ thống.
    - **Lý do**: Tăng cường bảo mật và ngăn ngừa truy cập trái phép vào thông tin nhạy cảm, đặc biệt là liên quan đến lương và thẻ chấm công.
-#2. Cơ chế phân tích
+# 2. Cơ chế phân tích
 Dưới đây là các **cơ chế phân tích** được đề xuất cho hệ thống **Payroll** và lý do lựa chọn từng cơ chế:
 
 ### 1. **Persistency (Tính bền vững dữ liệu)**
@@ -68,7 +68,7 @@ Dưới đây là các **cơ chế phân tích** được đề xuất cho hệ 
    - **Mô tả**: Hệ thống mới cần phải tích hợp với cơ sở dữ liệu quản lý dự án cũ (DB2) để truy xuất thông tin dự án.
    - **Cơ chế đề xuất**: Sử dụng API hoặc JDBC để kết nối và truy xuất dữ liệu từ hệ thống DB2 hiện có.
    - **Lý do**: Đảm bảo tích hợp dữ liệu từ hệ thống cũ mà không cần phải xây dựng lại toàn bộ từ đầu, tiết kiệm chi phí.
-#3. Phân tích ca sử dụng Payment
+# 3. Phân tích ca sử dụng Payment
 ### **Xác định các lớp phân tích:**
 
 Dựa trên ca sử dụng Payment, các lớp phân tích sau đây được xác định:
