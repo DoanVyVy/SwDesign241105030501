@@ -24,6 +24,10 @@ Kiến trúc của hệ thống Payroll gồm các thành phần chính sau:
 6. **Bảo mật (Security)**
    - Hệ thống đảm bảo rằng chỉ có các nhân viên mới có thể chỉnh sửa thông tin của chính họ và chỉ quản trị viên mới được thay đổi thông tin nhân viên hoặc thiết lập hệ thống.
    - **Lý do**: Tăng cường bảo mật và ngăn ngừa truy cập trái phép vào thông tin nhạy cảm, đặc biệt là liên quan đến lương và thẻ chấm công.
+### Biểu đồ package mô tả: ###
+
+![Diagram](https://www.planttext.com/api/plantuml/png/T94nRW8n44Lxds941Gq7e8W8X0A9I94Y3Z0odyLQhuqyiyKAvMGfSgHS8JP44Sucxkp_tzUVyUVxnrAKa_QTDqPQ5oX5WL6d7lJ2GuhUq-iWYeuUapqvXTK-WQPPx12KzW9Qis1cp9bjomreajyIROCY7TbYGXT3-LZF8lJDxRVcxOvOzU82ihoBZRD_4kiOjDH1giWdLgPDo8qTf0OttTd70HXdFKDFyL3bbBfDOdKnr2ah3krj0pyJ5N0qv7p-C9vZGQuusAgOaNWbVlLV45kRFVZFN_MynPThzfibmg5yv1S0003__mC0)
+
 # 2. Cơ chế phân tích
 Dưới đây là các **cơ chế phân tích** được đề xuất cho hệ thống **Payroll** và lý do lựa chọn từng cơ chế:
 
