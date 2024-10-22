@@ -271,6 +271,6 @@ Dưới đây là biểu đồ **Sequence** mô tả quá trình nhân viên th�
 5. **ProjectManagementDB**:
    - Đảm bảo mã dự án mà nhân viên nhập vào là hợp lệ, giúp quản lý và xác thực các dự án mà nhân viên làm việc.
 
-# 5. 
+# 5. Hợp nhất kết quả phân tích
 
 
