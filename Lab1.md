@@ -26,7 +26,7 @@ Kiến trúc của hệ thống Payroll gồm các thành phần chính sau:
    - **Lý do**: Tăng cường bảo mật và ngăn ngừa truy cập trái phép vào thông tin nhạy cảm, đặc biệt là liên quan đến lương và thẻ chấm công.
 ### Biểu đồ package mô tả: ###
 
-![Diagram](https://www.planttext.com/api/plantuml/png/T94nRW8n44Lxds941Gq7e8W8X0A9I94Y3Z0odyLQhuqyiyKAvMGfSgHS8JP44Sucxkp_tzUVyUVxnrAKa_QTDqPQ5oX5WL6d7lJ2GuhUq-iWYeuUapqvXTK-WQPPx12KzW9Qis1cp9bjomreajyIROCY7TbYGXT3-LZF8lJDxRVcxOvOzU82ihoBZRD_4kiOjDH1giWdLgPDo8qTf0OttTd70HXdFKDFyL3bbBfDOdKnr2ah3krj0pyJ5N0qv7p-C9vZGQuusAgOaNWbVlLV45kRFVZFN_MynPThzfibmg5yv1S0003__mC0)
+![Diagram](https://www.planttext.com/api/plantuml/png/V591JiCm4Bpx5Qi-e0_80RMXFLIYKYNe0nPdIKqIk-nk3X7YPHnu4b_0RYbAcXJVlBCxC-lnz-VNGXHPswOsHYhdWOEGKQSrmGux3dKDZvqeDR1aUt1ALbicOuveAom9PdiXXerNuXUqD8Dt0_7O6aKIGqDUzvjUxSarP96BGN7T7ElG4SNYHuyxRyLvYlX3A9sTvBuFNfDBuWcDIV2YDGd-xhpZOADku86T5Ih2siVNSIH3DnVIiS4jwI4K4-P6rCye14kRX4Uh9bEhl5_Zy1gpsAAFyqadedt2b4Z9g2xu8LcElZed-XTQ6XpbE9_VZGF8mAKEj2fc19uchjue0pmjHF_r3nRFuAqbTZS71ekT_QHhx3VNuhS4H0EJG14HOnRaY_JzVm000F__0m00)
 
 # 2. Cơ chế phân tích
 Dưới đây là các **cơ chế phân tích** được đề xuất cho hệ thống **Payroll** và lý do lựa chọn từng cơ chế:
@@ -163,4 +163,114 @@ Dưới đây là biểu đồ **Sequence** mô tả quá trình chọn phương
 Quan hệ giữa các lớp:
 - Lớp `PaymentController` điều khiển và tương tác với các lớp `Employee`, `PaymentMethod`, và `BankSystem`.
 - Lớp `PaymentUI` tương tác trực tiếp với nhân viên và chuyển tiếp các lựa chọn lên lớp điều khiển `PaymentController`.
+
+# 4. Phân tích ca sử dụng Maintain Timecard
+
+**Ca sử dụng Maintain Timecard** cho phép nhân viên quản lý thông tin về số giờ làm việc. Nhân viên có thể thêm, cập nhật và xóa các bản ghi thời gian làm việc của họ trong hệ thống.
+
+---
+
+### **Xác định các lớp phân tích:**
+
+Dưới đây là các lớp phân tích chính trong ca sử dụng **Maintain Timecard**:
+
+1. **Employee (Nhân viên)**
+   - **Nhiệm vụ**: Đại diện cho nhân viên trong hệ thống, có trách nhiệm quản lý thẻ chấm công của mình.
+   - **Thuộc tính**:
+     - `employeeID: int`
+     - `name: String`
+     - `timecards: List<Timecard>`
+   - **Quan hệ**: Có quan hệ với lớp `Timecard`.
+
+2. **Timecard (Thẻ chấm công)**
+   - **Nhiệm vụ**: Lớp này đại diện cho thông tin chấm công của nhân viên, bao gồm ngày làm việc và số giờ đã làm việc.
+   - **Thuộc tính**:
+     - `timecardID: int`
+     - `date: Date`
+     - `hoursWorked: float`
+     - `projectCode: String`
+   - **Quan hệ**: Liên kết với lớp `Employee`, chứa thông tin chấm công của nhân viên cho một dự án cụ thể.
+
+3. **TimecardController (Bộ điều khiển thẻ chấm công)**
+   - **Nhiệm vụ**: Điều khiển các thao tác thêm, cập nhật và xóa thẻ chấm công của nhân viên.
+   - **Phương thức**:
+     - `createTimecard()`
+     - `updateTimecard()`
+     - `deleteTimecard()`
+     - `submitTimecard()`
+   - **Quan hệ**: Tương tác với các lớp `Timecard`, `Employee`, và `ProjectManagementDB`.
+
+4. **ProjectManagementDB (Cơ sở dữ liệu quản lý dự án)**
+   - **Nhiệm vụ**: Lớp này đại diện cho hệ thống cơ sở dữ liệu dự án, chứa mã số dự án mà nhân viên cần để phân bổ giờ làm việc vào.
+   - **Phương thức**:
+     - `getProjectCode()`
+   - **Quan hệ**: Được tham chiếu bởi lớp `TimecardController` để xác minh tính hợp lệ của mã dự án mà nhân viên nhập vào.
+
+5. **TimecardUI (Giao diện thẻ chấm công)**
+   - **Nhiệm vụ**: Hiển thị giao diện để nhân viên nhập, chỉnh sửa, và gửi thông tin thẻ chấm công.
+   - **Phương thức**:
+     - `displayTimecardForm()`
+     - `getTimecardDetails()`
+     - `confirmTimecardSubmission()`
+   - **Quan hệ**: Tương tác với `Employee` và `TimecardController`.
+
+---
+
+### **Mô tả hành vi thông qua biểu đồ Sequence:**
+
+Dưới đây là biểu đồ **Sequence** mô tả quá trình nhân viên thêm hoặc cập nhật thẻ chấm công:
+
+![Diagram](https://www.planttext.com/api/plantuml/png/Z5DBJiCm5Dpx56-PIkq58WLLJOhKHKK5gLYxyMins77m1z6piU18N04xRfmMAi7IcNdpPiREryVdt5YghPE2qCOg3KlP2NL416fWINRAjOpg8zHSOaCrswu2i5sHHhLMAv60Cfu5wa2eIuAjvNOSxByIHYtTKOEmqUeP6xkcBJsWzDng4HYRTRKWP0cp6xyZXtjyTMWis45ahxGateF7wp877V5Xnwr7imcfonxFuO09ol2KQrLv0ioIW7MwXSPfxJsCUpA-1tpdnfeeT_B3kEa4FVxmC_fzS3l9psGOMig5WSpdnYayAQVDez8loARGnGPAnN1o5idq4idsNuCnQwWjXpSgUE1lHa9sGGwq5Fs4GEEXE3eMvxgWytyJIJGbZmg3PEZ6FvWzrxAlo1YkMdzJf2ZWhhF-G4KE5GgqE6eKnPMNe7of5xIpxYAIR0-C_ig7Q95pYVss7rbNxFSUe_avjYpyDzy0003__mC0)
+
+### **Xác định nhiệm vụ của từng lớp phân tích:**
+
+1. **Employee**
+   - Nhiệm vụ của lớp này là đại diện cho nhân viên và quản lý danh sách các thẻ chấm công của họ.
+   - Lưu trữ thông tin cơ bản như ID, tên và danh sách các thẻ chấm công.
+
+2. **Timecard**
+   - Đại diện cho thông tin chi tiết của một thẻ chấm công, bao gồm ngày làm việc, số giờ làm việc và mã dự án liên quan.
+   - Có nhiệm vụ lưu trữ, cập nhật, và xóa các bản ghi chấm công theo yêu cầu của nhân viên.
+
+3. **TimecardController**
+   - Điều khiển quá trình thêm, cập nhật, và xóa thẻ chấm công.
+   - Thực hiện xác thực mã dự án thông qua lớp `ProjectManagementDB` và quản lý các thao tác trên thẻ chấm công.
+
+4. **ProjectManagementDB**
+   - Xác thực mã dự án do nhân viên nhập vào khi tạo hoặc cập nhật thẻ chấm công.
+   - Cung cấp thông tin mã dự án để đảm bảo rằng các giờ làm việc được ghi nhận chính xác theo dự án.
+
+5. **TimecardUI**
+   - Giao diện để nhân viên nhập, chỉnh sửa, và gửi thẻ chấm công.
+   - Thu thập thông tin từ nhân viên và gửi đến lớp điều khiển `TimecardController` để xử lý.
+
+---
+
+### **Biểu đồ lớp phân tích và giải thích:**
+
+![Diagram](https://www.planttext.com/api/plantuml/png/h5HDIyD04BtdLmmvfT8Ul2vIYer2GQ5GnVCsEwsh-n5sDq8HVva7Vv9_mMoxcwGbRKNC8P0tBs_clTda-_DhOXqrhf8YAGIr5cvaAVG64TuJgAyHO01cEG6kN40LbKXWuGnNwm0vBh6WXba2TzowguVmFDxM0IXZ4SeYbq241e5LbOmw_0MHeS0UOXXpa7mamL6aD8uEg07rRGdazJq0pxeozacRLwoxhuIcaLaQ_OA5csgs7q4SFckbXZqgmpw1ddcdMZcZXK0J9WSe37R3ELZD4FxK-6Jk_o5zRbCxbgsMahjZtdhoUPmrkJ1kIq4tiNAhZSoYxXeRqHmTvS8sfKAh5JTouJjRoxNAEctcEqFtLD4rIbGklsxwrPhprczsmliR5Tn7TuvEOAcrGAhy0Cqtc5wcC1gD8Rr8ssDCG6vdiadFIV7ivdNY7VhAKUg-A2yhKSzwbDqNoNOxQ6ZXsjVgpNJ5EofTzWGLy_-T7m000F__0m00)
+
+### **Giải thích biểu đồ lớp phân tích:**
+
+1. **Employee**:
+   - Đại diện cho một nhân viên, quản lý danh sách các thẻ chấm công (`List<Timecard>`).
+   - Các phương thức `addTimecard()`, `updateTimecard()`, và `deleteTimecard()` cho phép quản lý danh sách thẻ chấm công của nhân viên.
+
+2. **Timecard**:
+   - Đại diện cho từng bản ghi chấm công của nhân viên, với thông tin về ngày làm việc, số giờ làm và mã dự án.
+   - Phương thức `update()` cho phép cập nhật thông tin thẻ chấm công khi nhân viên thực hiện thay đổi.
+
+3. **TimecardController**:
+   - Xử lý các thao tác liên quan đến thẻ chấm công, như tạo mới, cập nhật, xóa và gửi thẻ chấm công.
+   - Tương tác với lớp `Employee`, `Timecard`, và `ProjectManagementDB` để quản lý các thao tác này.
+
+4. **TimecardUI**:
+   - Giao diện cho phép nhân viên tương tác với hệ thống, nhập và gửi thông tin thẻ chấm công.
+   - Tương tác với lớp `TimecardController` để truyền thông tin từ giao diện đến logic xử lý.
+
+5. **ProjectManagementDB**:
+   - Đảm bảo mã dự án mà nhân viên nhập vào là hợp lệ, giúp quản lý và xác thực các dự án mà nhân viên làm việc.
+
+# 5. 
+
 
