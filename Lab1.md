@@ -1,5 +1,5 @@
 # 1. Phân tích kiến trúc
-Kiến trúc của hệ thống Payroll gồm các thành phần chính sau:
+Kiến trúc của hệ thống Payroll gồm các thành phần chính sau (Kiến trúc phân lớp **Layered Architecture**):
 
 1. **Giao diện người dùng (UI)**
    - Đây là nơi nhân viên và quản trị viên tương tác với hệ thống. Giao diện dựa trên Windows, cung cấp các chức năng như đăng nhập, nhập thông tin thẻ chấm công, đơn hàng, và thay đổi phương thức thanh toán.
