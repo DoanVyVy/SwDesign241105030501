@@ -14,5 +14,6 @@
 1. **Lớp LoginControll**
 - Điều khiển đăng nhập
 - Một số thuộc tính và phương thức:
--- `validate()`: xác thực tên đăng nhập và mật khẩu
+-- `validate()`: Xác thực tên đăng nhập và mật khẩu
+-- `login()`: Thực hiện đăng nhập 
  
