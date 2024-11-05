@@ -11,7 +11,7 @@
 
 ## Nhiệm vụ và quan hệ của các lớp phân tích
 
-**1. Lớp LoginControll**
+### 1. **Lớp LoginControll**
 - Nhiệm vụ: Điều khiển đăng nhập
 - Một số phương thức:
 1. `validate()`: Xác thực tên đăng nhập và mật khẩu,
@@ -20,7 +20,7 @@
 4. `displayError()`: Hiển thị lỗi,
 5. `cancelLogin()`: Hủy đăng nhập
 
-**2. Lớp LoginForm**
+### 2. **Lớp LoginForm**
 - Nhiệm vụ: Hiển thì form login
 - Thuộc tính:
 1. `nameField: String`: Lấy giá trị name từ input
@@ -34,7 +34,7 @@
 4. `resetFields()`: Đặt lại các trường nhập để người dùng có thể nhập lại.
 5. `onCancel()`: Xử lý sự kiện khi người dùng hủy đăng nhập, cập nhật `isCancel`.
 
-**3. Lớp Account**
+### 3. **Lớp Account**
 - Nhiệm vụ: Đại diện cho tài khoản người dùng, chứa thông tin như tên đăng nhập và mật khẩu, cũng như trạng thái của tài khoản.
 - Thuộc tính:
 1. `username: String`: Tên đăng nhập của người dùng.
