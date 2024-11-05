@@ -45,3 +45,31 @@
 2. `lockAccount()`: Khóa tài khoản khi nhập sai mật khẩu quá số lần cho phép.
 3. `unlockAccount()`: Mở khóa tài khoản.
 4. `changePassword(newPassword: String)`: Thay đổi mật khẩu của tài khoản.
+
+## Quan hệ giữa các lớp phân tích
+### 1. **LoginControll**
+- **Liên kết với LoginForm**: 
+  - **Quan hệ**: `LoginControll` sẽ tạo và điều khiển một phiên bản của `LoginForm`. Nó sử dụng `LoginForm` để thu thập thông tin đăng nhập từ người dùng.
+  - **Phương thức sử dụng**: `LoginForm.getName()`, `LoginForm.getPassword()`, `LoginForm.showError()`, `LoginForm.resetFields()`, `LoginForm.onCancel()`.
+  
+- **Liên kết với Account**: 
+  - **Quan hệ**: `LoginControll` sẽ tương tác với lớp `Account` để thực hiện việc xác thực tên đăng nhập và mật khẩu.
+  - **Phương thức sử dụng**: `Account.validateCredentials()`, `Account.lockAccount()` (nếu cần).
+
+### 2. **LoginForm**
+- **Liên kết với LoginControll**: 
+  - **Quan hệ**: `LoginForm` nhận thông tin từ người dùng và gửi thông tin đó đến `LoginControll` khi người dùng thực hiện hành động đăng nhập.
+  - **Phương thức sử dụng**: `onLoginButtonClick()` (gọi `LoginControll.login()`).
+  
+- **Liên kết với người dùng (User)**: 
+  - **Quan hệ**: `LoginForm` trực tiếp tương tác với người dùng để nhận đầu vào và hiển thị thông báo.
+
+### 3. **Account**
+- **Liên kết với LoginControll**: 
+  - **Quan hệ**: `Account` đại diện cho dữ liệu tài khoản người dùng và cung cấp các phương thức xác thực cho `LoginControll`.
+  - **Phương thức sử dụng**: `validateCredentials()`, `lockAccount()`.
+
+## Tổng kết các quan hệ:
+- **LoginControll** là bộ điều khiển chính, kết nối `LoginForm` và `Account`.
+- **LoginForm** là giao diện người dùng, cung cấp thông tin đăng nhập và nhận phản hồi từ `LoginControll`.
+- **Account** là mô hình dữ liệu, chứa thông tin và logic xác thực liên quan đến tài khoản.
