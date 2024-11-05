@@ -11,4 +11,8 @@
 
 ## Nhiệm vụ và quan hệ của các lớp phân tích
 
-- **Lớp LoginControll**  
+1. **Lớp LoginControll**
+- Điều khiển đăng nhập
+- Một số thuộc tính và phương thức:
+-- `validate()`: xác thực tên đăng nhập và mật khẩu
+ 
