@@ -82,7 +82,7 @@
 
 # Code Java mô phỏng ca sử dụng Maintain Timecard
 
-```python
+```java
 import java.util.*;
 
 class ChargeNumber {
