@@ -19,6 +19,7 @@
 3. `checkLogin()`: Kiểm tra đăng nhập,
 4. `displayError()`: Hiển thị lỗi,
 5. `cancelLogin()`: Hủy đăng nhập
+
 **2. Lớp LoginForm**
 - Nhiệm vụ: Hiển thì form login
 - Thuộc tính:
@@ -32,6 +33,7 @@
 3. `showError(message: String)`: Hiển thị thông báo lỗi khi đăng nhập không thành công.
 4. `resetFields()`: Đặt lại các trường nhập để người dùng có thể nhập lại.
 5. `onCancel()`: Xử lý sự kiện khi người dùng hủy đăng nhập, cập nhật `isCancel`.
+
 **3. Lớp Account**
 - Nhiệm vụ: Đại diện cho tài khoản người dùng, chứa thông tin như tên đăng nhập và mật khẩu, cũng như trạng thái của tài khoản.
 - Thuộc tính:
