@@ -78,9 +78,11 @@
 
 ![Diagram](https://www.planttext.com/api/plantuml/png/V9B1QiCm38RlUGeV4rXU88VI4jPJ6OKzWMUBn5IHYkKqZB4dss6Fj5TOtCGZ3M6-MVhrIv_idw_llGJjGzzXPb2Bg1CtZcgcu1bHVMGgdfj6PtM0l9Zk64NfObembzCoOfrSKRy_Uyy-xq14Dr2fr-0TDQb8am5CLP_PilkHVJTtBabtS7I0DjLFuUie7jZRZPIJ-kvTgJTc14rJmmR2o-YL5m_g63xFNkkKj3pyX-118Dm7a0JEDFLU8XsCuPv20ke5V8JQvbcZ74nmDrYXfDUeFLYWu3HAlhHyKckxOkM0R2xpN6dqdZQ2fjNKmD-228RpsZc2FlwPijmjth5IdQPnUQ9s6xgqd4gDUucIFP2Dd_4N003__mC0)
 
+# Ca sử dụng Maintain Employee Information
+
 # Code Java mô phỏng ca sử dụng Maintain Timecard
 
-```java
+```python
 import java.util.*;
 
 class ChargeNumber {
