@@ -56,3 +56,51 @@ Hệ thống Cơ Sở Dữ Liệu Quản Lý Dự Án xử lý dữ liệu liên
 **Giao Diện (`IProjectManagementDatabase`)**  
 - `updateProject(aProject: Project)`: Phương thức cập nhật thông tin cho một dự án cụ thể trong cơ sở dữ liệu.
 
+# 2. Analysis class to design element map
+
+| Lớp Phân Tích              | Phần Tử Thiết Kế                                          |
+|----------------------------|-----------------------------------------------------------|
+| LoginForm                  | LoginForm                                                 |
+| MaintainTimecardForm       | MainEmployeeForm, TimecardForm, MainApplicationForm       |
+| TimecardController         | TimecardController                                        |
+| SystemClockInterface       | SystemClockInterface                                      |
+| PayrollController          | PayrollController                                         |
+| Paycheck                   | Paycheck                                                  |
+| Employee                   | Employee, EmployeeForm, EmployeeController                |
+| PurchaseOrder              | PurchaseOrder, PurchaseOrderForm, PurchaseOrderController |
+| BankSystemInterface        | BankSystemInterface, BankSystemProxy                      |
+| PrintService               | PrintService, PrintController                             |
+| ProjectManagementDatabase  | ProjectManagementDatabase, DatabaseController             |
+| PaycheckCalculator         | PaycheckCalculator, SalaryCalculator                      |
+| CommissionedEmployee       | CommissionedEmployeeForm, CommissionedEmployeeController  |
+| EmployeeDatabase           | EmployeeDatabase, DatabaseService                         |
+| PayrollDatabase            | PayrollDatabase, DatabaseController                       |
+| PaymentMethod              | PaymentMethod, DirectDeposit, CheckPayment                |
+| Timecard                   | Timecard, TimecardEntryForm                               |
+| BankInformation            | BankInformation, BankService                              |
+
+# 3. Design element to owning package map
+
+| Design Element            | Owning Package                          |
+|---------------------------|-----------------------------------------|
+| LoginForm                 | Middleware::Security:GUI Framework      |
+| MainEmployeeForm          | Applications::Employee Activities       |
+| TimecardForm              | Applications::Employee Activities       |
+| MainApplicationForm       | Middleware::Security:GUI Framework      |
+| TimecardController        | Applications::Employee Activities       |
+| SystemClockInterface      | Applications::Payroll                   |
+| PayrollController         | Applications::Payroll                   |
+| Paycheck                  | Business Services::Payroll Artifacts    |
+| Employee                  | Applications::Employee Activities       |
+| PurchaseOrder             | Business Services::Purchase Management  |
+| BankSystemInterface       | Business Services::Bank Integration     |
+| PrintService              | Business Services::Printing             |
+| ProjectManagementDatabase | Infrastructure::Database Management     |
+| PaycheckCalculator        | Business Services::Payroll Artifacts    |
+| CommissionedEmployee      | Applications::Employee Activities       |
+| EmployeeDatabase          | Infrastructure::Database Management     |
+| PayrollDatabase           | Infrastructure::Database Management     |
+| PaymentMethod             | Business Services::Payment Integration  |
+| Timecard                  | Applications::Employee Activities       |
+| BankInformation           | Business Services::Bank Integration     |
+
